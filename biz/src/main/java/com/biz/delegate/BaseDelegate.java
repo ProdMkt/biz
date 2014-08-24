@@ -58,6 +58,7 @@ public abstract class BaseDelegate<T extends Object> {
 	/**
 	 * Abstract method to be implemented by various Delegates's depending upon the action
 	 * they perform.
+	 * @param <T>
 	 * @param operation
 	 * @param argument
 	 * @return

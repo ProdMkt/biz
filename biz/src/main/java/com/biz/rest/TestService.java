@@ -18,7 +18,6 @@ import com.biz.delegate.BaseDelegate;
 @Produces( { "application/json", "application/xml" } )
 public class TestService extends BaseService{
 
-	//Auto - wiring the business object
 	@Autowired
 	private BaseDelegate<String> test;
 	
