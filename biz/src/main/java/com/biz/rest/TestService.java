@@ -2,7 +2,6 @@ package com.biz.rest;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
-import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.WebApplicationException;
 import javax.ws.rs.core.Response;
@@ -29,7 +28,7 @@ public class TestService extends BaseService{
 	 * @return Response.
 	 */
 	@GET
-	public Response forgot( @PathParam( "id" ) String id ){
+	public Response test(){
 		Object returnObj = null;
 		try{
 			returnObj = test.handleService(BizOperation.TEST_REST, null);
