@@ -23,8 +23,7 @@ public class TestService extends BaseService{
 	
 	
 	/**
-	 * Rest Service exposed as GET to handle forgot password flow.
-	 * @param id : email ID of the user, to reset the password
+	 * Rest Service exposed as GET flow.
 	 * @return Response.
 	 */
 	@GET
