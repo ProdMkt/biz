@@ -7,7 +7,7 @@ import com.biz.data.StatusCode;
 public class TestDelegate extends BaseDelegate {
 
 	private String test() {
-		return com.biz.data.StatusCode.SUCCESS.toString();
+		return getMessage("rest.hello");
 	}
 	
 	@Override
