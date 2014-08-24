@@ -5,6 +5,7 @@ import java.util.List;
 
 import javax.xml.bind.annotation.XmlRootElement;
 
+import com.biz.data.BizConstants;
 import com.biz.data.StatusCode;
 
 @XmlRootElement
@@ -13,12 +14,12 @@ public class ResponseStatus {
     /**
      * The status code for the response returned by the API.
      */
-    private StatusCode statusCode;
+    private StatusCode statusCode = StatusCode.SUCCESS;
     
     /**
      * The response message returned by the API.
      */
-    private String statusMessage;
+    private String statusMessage = BizConstants.SUCCESS_MSG;
     
     /**
      * Errors (if any) while processing the request. 

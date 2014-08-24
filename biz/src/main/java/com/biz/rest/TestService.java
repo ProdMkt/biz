@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import com.biz.data.BizOperation;
+import com.biz.data.rest.response.ServiceResponse;
 import com.biz.delegate.BaseDelegate;
 
 @Component
@@ -19,7 +20,7 @@ public class TestService extends BaseService{
 
 	//Auto - wiring the business object
 	@Autowired
-	private BaseDelegate test;
+	private BaseDelegate<String> test;
 	
 	
 	/**
@@ -28,12 +29,12 @@ public class TestService extends BaseService{
 	 */
 	@GET
 	public Response test(){
-		Object returnObj = null;
+		ServiceResponse<String> returnObj = null;
 		try{
 			returnObj = test.handleService(BizOperation.TEST_REST, null);
 		}
 		catch( Exception e ){
-			throw new WebApplicationException( Response.Status.INTERNAL_SERVER_ERROR );
+			throw new WebApplicationException(Response.Status.INTERNAL_SERVER_ERROR );
 		}		 
 		return Response.ok(returnObj).build();
 	}	

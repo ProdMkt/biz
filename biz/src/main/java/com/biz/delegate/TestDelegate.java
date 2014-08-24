@@ -1,22 +1,26 @@
 package com.biz.delegate;
 
 import com.biz.data.BizOperation;
-import com.biz.data.StatusCode;
+import com.biz.data.rest.response.ServiceResponse;
+import com.biz.data.rest.response.TestServiceResponse;
 
 
-public class TestDelegate extends BaseDelegate {
+public class TestDelegate extends BaseDelegate<String> {
 
-	private String test() {
-		return getMessage("rest.hello");
+	private ServiceResponse<String> test(ServiceResponse<String> response) {
+		response.setData(getMessage("rest.hello"));
+		return response;
 	}
 	
 	@Override
-	public Object handleService(BizOperation operation, Object argument) {
+	public ServiceResponse<String> handleService(BizOperation operation, Object argument) {
+		ServiceResponse<String> response = new TestServiceResponse();
+		
 		switch(operation){
 		 case TEST_REST: 
-			 return this.test();			 
+			 return this.test(response);			 
 		 default:
-			 return StatusCode.INVALID_OPERATION.toString();
+			 return this.returnInvalidOperation(response);
 		}
 	} 	
 }
