@@ -5,9 +5,12 @@
 	http://www.springframework.org/schema/beans/spring-beans-4.0.xsd 
 	http://www.springframework.org/schema/context
 	http://www.springframework.org/schema/context/spring-context-4.0.xsd">
-
-	<context:component-scan base-package="com.biz.rest" />
 	
+	   <!-- Activate annotation configured components -->
+   <context:annotation-config/>
+   <context:property-placeholder location="classpath:biz.properties" />
+	<context:component-scan base-package="com.biz" />
+	<import resource="classpath:mongoDBConfig.xml"/> 
 	<bean id="test" class="com.biz.delegate.TestDelegate" />
 	
 	<bean id="resourceReader" class="com.biz.util.ResourceReader" />
@@ -17,7 +20,12 @@
         <property name="basenames">
             <list>
                 <value>com/bundle/messages</value>
+                
             </list>
         </property>
     </bean>
+    
+    
+    
+     
 </beans>
